@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
-});
+})->name( 'index' );
+
+Route::get('/test', function() {
+    $user = User::factory()->create();
+    /*
+    $user->name = "hey";
+    $user->email = "foo6";
+    $user->password = "foo";
+    $user->test1 = "bar";
+
+    //$user->save();*/
+    return $user;
+})->middleware('auth');
+
+Route::get( '/login', \App\Http\Controllers\Login::class )->name('login');
+
+Route::get( '/logout', \App\Http\Controllers\Logout::class )->name('logout');
+
+Route::get( '/panel', \App\Http\Controllers\Panel::class )->name( 'panel' );
