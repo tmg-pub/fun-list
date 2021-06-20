@@ -8,10 +8,10 @@ body {
 }
 
 main {
-   margin: 8px;
+   margin: 0px;
    background-color: #114867;
-   padding: 16px;
-   border-radius: 8px;
+   padding: 24px;
+   --border-radius: 8px;
 }
 
 h1:first-child, h2:first-child {

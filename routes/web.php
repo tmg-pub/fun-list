@@ -45,3 +45,5 @@ Route::get( '/c/{slug}', \App\Http\Controllers\Profile::class )
 
    Route::get( '/edit/{id?}', \App\Http\Controllers\Edit::class )
    ->name( 'edit' );
+
+Route::get( '/api/fun', \App\Http\Controllers\Api\Fun::class );

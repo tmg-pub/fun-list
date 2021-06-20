@@ -1,9 +1,11 @@
+@extends( 'shell' )
 
+@section( 'content' )
 <table width="100%"><tbody>
    <tr>
       <td style="vertical-align: top">
          <h1>Welcome to F-list.us!</h1>
-         <p>There is nothing like an F-list to help other roleplayers to know what you like to do for fun when you are hanging out!</p>
+         <p>There is nothing like an F-list to help other role-players to know what you like to do for fun!</p>
 
          @guest
          <h2><a href="{{ route('panel') }}">Create a profile!</a></h2>
@@ -20,3 +22,4 @@
       </td>
    </tr>
 </tbody></table>
+@endsection

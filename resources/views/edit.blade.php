@@ -1,5 +1,6 @@
-{{--//@include('header')--}}
+@extends('shell')
 
+@section('content')
 @if( $profile->exists )
     <h2>Edit your character profile</h2>
 @else
@@ -76,5 +77,4 @@
 </script>
 
 <script src="js/edit.js"></script>
-
-{{--/@include('footer')--}}
+@endsection

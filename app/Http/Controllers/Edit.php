@@ -20,8 +20,7 @@ class Edit extends Controller
          return redirect( 'panel' );
       }
       //
-      return view( 'shell', [
-         'content' => 'edit',
+      return view( 'edit', [
          'profile' => $profile
       ]);
    }

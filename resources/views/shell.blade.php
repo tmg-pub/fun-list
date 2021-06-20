@@ -5,20 +5,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <title>
-         @if( isset($title) )
-            Fun-List - {{ $title }}
-         @else
-            Fun-List
-         @endif
+         @yield( 'title', 'Fun-List' )
       </title>
       <link rel="stylesheet" href="{{ URL::asset('my.css') }}">
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
    </head>
    <body>
       <div class="header">
          <a href="/"><div class="logo"></div></a>
       </div>
       <main>
-         @include( $content )
+         @yield('content')
       </main>
       <footer></footer>
    </body>
