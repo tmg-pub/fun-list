@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+body {
+   font-family: Pangolin, sans-serif;
+   background-color: #0b2f43;
+   color: #fff58b;
+   margin: 0px;
+}
+
+main {
+   margin: 8px;
+   background-color: #114867;
+   padding: 16px;
+   border-radius: 8px;
+}
+
+h1:first-child, h2:first-child {
+   margin-top: 0;
+}
+
+.header {
+   height: 150px;
+   width: 100%;
+   border-bottom: 12px solid #dfd004;
+   margin: 0px;
+}
+
+.logo {
+   position: relative;
+   left: 10px;
+   height: 150px;
+   background: url(/img/banner.png) 0px 0px no-repeat;
+}
+
+a {
+   color: #fff;
+   border-bottom: 4px solid #dfd004;
+   text-decoration: none;
+}
+
+footer {
+   border-top: 12px solid #dfd004;
+
+}
+
+input[type=text] {
+   background-color:inherit;
+   border:none;
+   border-bottom: 2px solid #dfd004;
+   color: inherit;
+   font-family: inherit;
+   font-size: inherit;
+}
+
+.likelist {
+   width: 100%;
+   min-height: 200px;
+   
+}
+
+.likelist td {
+   border: 2px solid #0a2838;
+   border-radius: 2px;
+   border-top: 8px solid #0558e0;
+   background: #124c6d;
+   background: -webkit-gradient( linear, left top, left bottom, color-stop(0, #15587e), color-stop(1, #104461) );
+   vertical-align: top;
+   padding: 8px;
+   width: 25%;
+}
+
+.likelist td p:first-child {
+   margin-top: 0;
+}
+
+.likelist .fave {
+   border-top-color: #4a90ff;
+}
+.likelist .fave .title {
+   color: #4a90ff;
+   font-weight: bold;
+}
+
+.likelist .yes {
+   border-top-color: #30e010;
+}
+.likelist .yes .title {
+   color: #30e010;
+}
+
+.likelist .maybe {
+   border-top-color: #f0f335;
+}
+.likelist .maybe .title {
+   color: #f0f335;
+}
+
+.likelist .no {
+   border-top-color: #f01515;
+}
+
+.likelist .no .title {
+   color: #f01515;
+}
+
+input.slug {
+   padding-left: 75px;
+   width: calc( 100% - 75px );
+}
+
+input:focus {
+   outline: none;
+   background-color: rgba( 255,255,255, 0.1 );
+}
+
+label.slug {
+   position: absolute;
+   padding: 0;
+}
+

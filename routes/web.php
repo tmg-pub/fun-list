@@ -15,24 +15,33 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function() {
-    return view('welcome');
-})->name( 'index' );
+Route::get( '/', \App\Http\Controllers\Home::class )
+   ->name( 'home' );
 
-Route::get('/test', function() {
-    $user = User::factory()->create();
-    /*
-    $user->name = "hey";
-    $user->email = "foo6";
-    $user->password = "foo";
-    $user->test1 = "bar";
+Route::get( '/test', function() {
+   $user = User::factory()->create();
+   /*
+   $user->name = "hey";
+   $user->email = "foo6";
+   $user->password = "foo";
+   $user->test1 = "bar";
 
-    //$user->save();*/
-    return $user;
+   //$user->save();*/
+   return $user;
 })->middleware('auth');
 
-Route::get( '/login', \App\Http\Controllers\Login::class )->name('login');
+Route::get( '/login', \App\Http\Controllers\Login::class )
+   ->name('login');
 
-Route::get( '/logout', \App\Http\Controllers\Logout::class )->name('logout');
+Route::get( '/logout', \App\Http\Controllers\Logout::class )
+   ->name('logout');
 
-Route::get( '/panel', \App\Http\Controllers\Panel::class )->name( 'panel' );
+Route::get( '/panel', \App\Http\Controllers\Panel::class )
+   ->name( 'panel' )
+   ->middleware('auth');
+
+Route::get( '/c/{slug}', \App\Http\Controllers\Profile::class )
+   ->name( 'profile' );
+
+   Route::get( '/edit/{id?}', \App\Http\Controllers\Edit::class )
+   ->name( 'edit' );

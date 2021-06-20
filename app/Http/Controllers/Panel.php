@@ -16,6 +16,7 @@ class Panel extends Controller
    public function __invoke(Request $request)
    {
       //
-      dd( Auth::user() );
+      
+      return view('panel');
    }
 }

@@ -85,6 +85,6 @@ class Login extends Controller
 
       Auth::login( $user, $remember = true );
 
-      return redirect()->route( "panel" );
+      return redirect()->route( 'panel' );
    }
 }
