@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 body {
-
+   
    /* Color palette */
-   --base-backdrop: #0b2f43;
-   --text-color: #fff58b;
-   --content-backdrop: #114867;
-   --content-inset-backdrop: #0e3b54;
-   --fat-border: #dfd004;
-   --link-color: #fff;
+   --base-backdrop:           #0b2f43;
+   --text-color:              #fff58b;
+   --content-backdrop:        #114867;
+   --content-inset-backdrop:  #0e3b54;
+   --fat-border:              #dfd004;
+   --link-color:              #fff;
    --content-outset-backdrop: #165c83;
-
-   font-family: Pangolin, sans-serif;
+   
+   font-family:      Pangolin, sans-serif;
    background-color: var(--base-backdrop);
-   color: var(--text-color);
-   margin: 0px;
+   color:            var(--text-color);
+   margin:           0px;
 }
 
 main {
-   margin: 0px;
+   margin:           0px;
    background-color: var(--content-backdrop);
-   padding: 24px;
-   --border-radius: 8px;
+   padding:          24px;
+   --border-radius:  8px;
 }
 
 h1:first-child, h2:first-child {
@@ -29,10 +29,10 @@ h1:first-child, h2:first-child {
 }
 
 .header {
-   height: 150px;
-   width: 100%;
+   height:        150px;
+   width:         100%;
    border-bottom: 12px solid var(--fat-border);
-   margin: 0px;
+   margin:        0px;
 }
 /*
 #header_border {
@@ -43,77 +43,77 @@ h1:first-child, h2:first-child {
 }*/
 
 .logo {
-   height: 150px;
+   height:     150px;
    background: url(/img/banner.png) 10px 0px no-repeat;
 }
 
 a {
-   color: var(--link-color);
-   border-bottom: 4px solid var(--fat-border);
+   color:           var(--link-color);
+   border-bottom:   4px solid var(--fat-border);
    text-decoration: none;
 }
 
 footer {
    border-top: 12px solid var(--fat-border);
-
+   
 }
 
 input[type=text] {
-   background-color:inherit;
-   border:none;
-   border-bottom: 2px solid var(--fat-border);
-   color: inherit;
-   font-family: inherit;
-   font-size: inherit;
+   background-color: inherit;
+   border:           none;
+   border-bottom:    2px solid var(--fat-border);
+   color:            inherit;
+   font-family:      inherit;
+   font-size:        inherit;
 }
 
 .bio {
-   width: 100%;
-   font-family: inherit;
-   min-height: 200px;
-   border:none;
-   border-radius: 4px;
+   width:            100%;
+   font-family:      inherit;
+   min-height:       200px;
+   border:           none;
+   border-radius:    4px;
    background-color: var(--content-inset-backdrop);
-   color: inherit;
-   padding: 8px;
+   color:            inherit;
+   padding:          8px;
+   color:            white;
 }
 
 .edit_footer {
    text-align: middle;
    border-top: 2px solid var(--fat-border);
-   padding: 8px;
+   padding:    8px;
 }
 
 .edit_footer button {
-   font-size: 1.5em;
-   background: none;
-   color: inherit;
-   border-radius: 4px;
+   font-size:        1.5em;
+   background:       none;
+   color:            inherit;
+   border-radius:    4px;
    background-color: var(--content-outset-backdrop);
-   font-family: inherit;
+   font-family:      inherit;
    
 }
 .edit_footer button:active {
-   position: relative;
-   top: 1px;
+   position:         relative;
+   top:              1px;
    background-color: var(--content-inset-backdrop);
 }
 
 .likelist {
-   width: 100%;
+   width:      100%;
    min-height: 200px;
-   
 }
 
 .likelist td {
-   border: 2px solid #0a2838;
-   border-radius: 2px;
-   border-top: 8px solid #0558e0;
-   background: var(--content-outset-backdrop);
-   background: -webkit-gradient( linear, left top, left bottom, color-stop(0, #15587e), color-stop(1, #104461) );
+   border:         2px solid #0a2838;
+   border-radius:  2px;
+   border-top:     8px solid #0558e0;
+   background:     var(--content-outset-backdrop);
+   background:     -webkit-gradient( linear, left top, left bottom, color-stop(0, #15587e), color-stop(1, #104461) );
    vertical-align: top;
-   padding: 8px;
-   width: 25%;
+   padding:        8px;
+   width:          25%;
    
 }
 
@@ -125,7 +125,7 @@ input[type=text] {
    border-top-color: #4a90ff;
 }
 .likelist .fave .title {
-   color: #4a90ff;
+   color:     #4a90ff;
    font-weight: bold;
 }
 
@@ -150,22 +150,47 @@ input[type=text] {
 .likelist .no .title {
    color: #f01515;
 }
-
+/*
 input.slug {
    padding-left: 75px;
-   width: calc( 100% - 75px );
-}
+   width:        calc( 100% - 75px );
+}*/
 
 input:focus {
-   outline: none;
+   outline:          none;
    background-color: var(--content-outset-backdrop);
 }
 
-label.slug {
-   position: absolute;
+input.trait {
+   width: 100%;
    padding: 0;
+   color: white;
 }
 
 #likesources {
+   background-color: var(--content-inset-backdrop);
+   min-height:       100px;
+   margin-bottom:    20px;
+   border-radius:    4px;
+   display:          flex;
+   flex-wrap:        wrap;
+   overflow-y:       scroll;
+   width:            100%;
+   padding:          2px;
+}
 
+.fun {
+   background-color: white;
+   color:            black;
+   padding:          4px;
+   height:           20px;
+   user-select:      none;
+   cursor:           grab; /* todo: make the helper cursor "grabbing" */
+   margin: 0;
+}
+
+#likesources .fun {
+   /* When they're in the fun bin, give them a fixed width in order to fit nicely in the flex box. */
+   width: 150px;
+   margin-right: 2px;
 }

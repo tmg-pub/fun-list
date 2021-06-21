@@ -2,6 +2,7 @@
 test = {
    "traits": {
       "name": "Imra Cinderlove",
+      "slug": "imra",
       "race": "High-elf",
       "age": "Young Adult",
       "gender": "Girl",
@@ -38,3 +39,13 @@ LoadProfile( test );
 function UpdateLists() {
 
 }
+
+async function GetFuns() {
+   let r = (await fetch( "/api/fun" ).then( e => e.json() ));
+   console.log(r);
+
+   
+}
+
+GetFuns();
+
