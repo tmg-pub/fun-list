@@ -75,7 +75,7 @@ function LoadProfile() {
          }
       }
 
-      document.getElementById( "bio" ).innerText = data.fields.bio ?? "";
+      $("#bio").val( data.fields.bio ?? "" );
 
       if( data.fields.likes ) {
          for( const section of ['fave', 'yes', 'maybe', 'no'] ) {
