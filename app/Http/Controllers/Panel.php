@@ -19,6 +19,10 @@ class Panel extends Controller
       $profiles = Profile::select('name', 'id', 'slug')
                   ->where( 'user_id', Auth::user()->id )
                   ->get();
+      if( count($profiles) == 0 ) {
+         // They have no profiles! Create one!
+         return redirect()->route( 'edit' );
+      }
       return view( 'panel', [
          'profiles' => $profiles
       ]);

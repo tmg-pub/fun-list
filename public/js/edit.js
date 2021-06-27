@@ -66,29 +66,35 @@ function MakeFunDraggable( sel ) {
 function LoadProfile() {
    const data = JSON.parse(atob(window.ProfileData));
    console.log(data);
-   for( const [key, value] of Object.entries(data.fields.traits) ) {
-      console.log( key, value );
-      let e = document.getElementById( "field_" + key.toLowerCase() );
-      e.value = value;
-   }
-
-   document.getElementById( "bio" ).innerText = data.fields.bio;
-
-   for( const section of ['fave', 'yes', 'maybe', 'no'] ) {
-      let jsection = $(`.likelist .${section}`);
-      for( const like of (data.fields.likes[section] ?? []) ) {
-         let elem = null;
-         if( !like.desc ) {
-            // not custom
-            elem = $(`.fun[data-name="${like.name}"]`);
-         } else {
-            elem = CreateCustomFun( like.name, like.desc );
+   if( data.fields ) {
+      if( data.fields.traits ) {
+         for( const [key, value] of Object.entries(data.fields.traits) ) {
+            console.log( key, value );
+            let e = document.getElementById( "field_" + key.toLowerCase() );
+            e.value = value;
          }
-         jsection.append( elem );
+      }
+
+      document.getElementById( "bio" ).innerText = data.fields.bio ?? "";
+
+      if( data.fields.likes ) {
+         for( const section of ['fave', 'yes', 'maybe', 'no'] ) {
+            let jsection = $(`.likelist .${section}`);
+            for( const like of (data.fields.likes[section] ?? []) ) {
+               let elem = null;
+               if( !like.desc ) {
+                  // not custom
+                  elem = $(`.fun[data-name="${like.name}"]`);
+               } else {
+                  elem = CreateCustomFun( like.name, like.desc );
+               }
+               jsection.append( elem );
+            }
+         }
       }
    }
 
-   profile_id = data.id;
+   profile_id = data.id ?? null;
 }
 
 //----------------------------------------------------------------------------------------
@@ -237,6 +243,11 @@ function Publish() {
       } else {
          alert( r.error );
          return;
+      }
+
+      if( payload.traits.slug == "" ) {
+         alert( "No profile URL specified!" )
+         no_errors = false;
       }
 
       if( no_errors ) {
