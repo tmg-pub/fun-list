@@ -11,5 +11,6 @@
    </li>
 @endforeach
 </ul>
+<h2><a href="/edit">Create a new profile</a></h2>
 
 @endsection
