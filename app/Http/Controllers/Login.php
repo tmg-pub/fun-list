@@ -59,13 +59,14 @@ class Login extends Controller
       $token = $this->DiscordRequest( '/oauth2/token', [
          'nojson' => true,
          'method' => 'POST',
+         
          'body' => [
-            'client_id' => env( 'DISCORD_CLIENTID' ),
+            'client_id'     => env( 'DISCORD_CLIENTID' ),
             'client_secret' => env( 'DISCORD_SECRET' ),
-            'grant_type' => 'authorization_code',
-            'code' => $code,
-            'redirect_uri' => env( 'DISCORD_REDIRECT_URL' ),
-            'scope' => 'identify'
+            'grant_type'    => 'authorization_code',
+            'code'          => $code,
+            'redirect_uri'  => env( 'DISCORD_REDIRECT_URL' ),
+            'scope'         => 'identify'
          ]
       ]);
 

@@ -1,0 +1,5 @@
+ php artisan make:controller CheckSlug --invokable
+php artisan make:model ProfileLike -m
+
+REMAKE DB
+php artisan migrate:refresh

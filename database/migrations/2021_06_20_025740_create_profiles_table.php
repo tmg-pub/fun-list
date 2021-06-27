@@ -16,14 +16,10 @@ class CreateProfilesTable extends Migration
       Schema::create('profiles', function (Blueprint $table) {
          $table->id();
          $table->foreignIdFor(\App\Models\User::class);
-         $table->string( "name", 100 );
-         $table->string( "slug" )->unique();
-         $table->string( "age", 30 );
-         $table->string( "gender", 30 );
-         $table->string( "race", 30 );
-         $table->string( "timezone", 30 );
-         $table->text( "additional_fields" );
-         $table->integer( "views" );
+         $table->string( "name", 100 )->nullable();
+         $table->string( "slug" )->unique()->nullable();
+         $table->json( "fields" )->nullable();
+         $table->integer( "views" )->default( 0 );
          $table->timestamps();
       });
    }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\Profile;
 
 class Panel extends Controller
 {
@@ -15,7 +16,11 @@ class Panel extends Controller
     */
    public function __invoke(Request $request)
    {
-      //
-      return view( 'panel' );
+      $profiles = Profile::select('name', 'id', 'slug')
+                  ->where( 'user_id', Auth::user()->id )
+                  ->get();
+      return view( 'panel', [
+         'profiles' => $profiles
+      ]);
    }
 }

@@ -30,8 +30,8 @@ class Edit extends Controller
             'name'    => 'slug',
             'title'   => 'Profile URL',
             'tooltip' => 'How users will find your profile. Can contain letters, numbers, and dashes.',
-            'prefix'  => 'f-list.us/c/',
-            'prefixsize' => '75px'
+            'prefix'  => env('APP_DOMAIN') . '/c/',
+            'prefixsize' => '73px'
          ],
          [
             'name'    => 'race',
@@ -47,6 +47,11 @@ class Edit extends Controller
             'name'    => 'gender',
             'title'   => 'Gender',
             'tooltip' => 'Are you a boy or a girl?',
+         ],
+         [
+            'name'    => 'pronouns',
+            'title'   => 'Pronouns',
+            'tooltip' => 'You don\'t really need to fill in gender!',
          ],
          [
             'name'    => 'color',
@@ -65,9 +70,17 @@ class Edit extends Controller
          ],
       ];
       //
+
+      $serialized_profile = base64_encode(json_encode($profile->attributesToArray()));
+      $pp = public_path();
+      $pid = $profile->id;
+      
       return view( 'edit', [
-         'profile' => $profile,
-         'traits' => $traits
+         'profile'     => $profile,
+         'traits'      => $traits,
+         'fundata'     => \App\Helpers\BuildFunList::GetSerialized(),
+         'profiledata' => $serialized_profile,
+         'has_avatar'  => file_exists( "$pp/avatar/$pid.jpg" ),
       ]);
    }
 }
