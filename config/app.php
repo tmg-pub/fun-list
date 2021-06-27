@@ -230,4 +230,17 @@ return [
 
     ],
 
+
+    'domain' => env('APP_DOMAIN'),
+    'admin_email' => env('ADMIN_EMAIL'),
+    'magick' => env('IMAGEMAGICK'),
+
+    'discord_oauth' => [
+        'clientid' => env('DISCORD_CLIENTID'),
+        'secret' => env('DISCORD_SECRET'),
+        'login_url' => env('DISCORD_LOGIN_URL'),
+        'redirect_url' => env('DISCORD_REDIRECT_URL'),
+    ],
+
+    'discord_bot_token' => env('DISCORD_BOT_TOKEN'),
 ];

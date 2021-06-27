@@ -30,7 +30,7 @@ class Edit extends Controller
             'name'    => 'slug',
             'title'   => 'Profile URL',
             'tooltip' => 'How users will find your profile. Can contain letters, numbers, and dashes.',
-            'prefix'  => env('APP_DOMAIN') . '/c/',
+            'prefix'  => config('app.domain') . '/c/',
             'prefixsize' => '73px'
          ],
          [

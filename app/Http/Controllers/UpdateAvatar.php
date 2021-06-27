@@ -57,7 +57,7 @@ class UpdateAvatar extends Controller
          $new_path = public_path() . "/avatar/" . $profile->id . ".jpg";
 
          // This feels like something begging to be hacked.
-         $magick = env( 'IMAGEMAGICK' );
+         $magick = config( 'app.magick' );
          system( "$magick -verbose \"$ext:$original_path\" -resize 150x150 \"$new_path\"", $result_code );
          if( $result_code != 0 ) {
             return response()->json([

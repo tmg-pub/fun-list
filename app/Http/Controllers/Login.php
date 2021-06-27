@@ -48,7 +48,7 @@ class Login extends Controller
       $code = $request->query( 'code', '' );
       if( $code == '' ) {
          // Initiate login sequence.
-         return redirect()->away( env("DISCORD_LOGIN_URL") );
+         return redirect()->away( config('app.discord_oauth.login_url') );
       }
 
       //
@@ -61,11 +61,11 @@ class Login extends Controller
          'method' => 'POST',
          
          'body' => [
-            'client_id'     => env( 'DISCORD_CLIENTID' ),
-            'client_secret' => env( 'DISCORD_SECRET' ),
+            'client_id'     => config( 'app.discord_oauth.clientid' ),
+            'client_secret' => config( 'app.discord_oauth.secret' ),
             'grant_type'    => 'authorization_code',
             'code'          => $code,
-            'redirect_uri'  => env( 'DISCORD_REDIRECT_URL' ),
+            'redirect_uri'  => config( 'app.discord_oauth.redirect_url' ),
             'scope'         => 'identify'
          ]
       ]);

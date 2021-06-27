@@ -21,6 +21,6 @@
       <main>
          @yield('content')
       </main>
-      <footer><a href="mailto:{{env('ADMIN_EMAIL')}}">Submit Feedback</a></footer>
+      <footer><a href="mailto:{{config('app.admin_email')}}">Submit Feedback</a></footer>
    </body>
 </html>
