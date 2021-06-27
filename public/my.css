@@ -257,10 +257,12 @@ input.trait {
 
 #funtip .title {
    color: var(--link-color);
+   overflow-wrap: break-word;
 }
 
 #funtip .desc {
    font-size: 0.9em;
+   overflow-wrap: break-word;
 }
 
 .custom-activity-form {
