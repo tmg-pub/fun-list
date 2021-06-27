@@ -83,7 +83,7 @@ class Profile extends Controller
             'trait_list'      => $trait_list,
             'trait_localized' => $trait_localized,
             'likesections'    => $likesections,
-            'canedit'         => Auth::user()->id == $profile->user_id,
+            'canedit'         => Auth::check() && Auth::user()->id == $profile->user_id,
             'has_avatar'      => file_exists( "$pp/avatar/$pid.jpg" ),
          ]);
       }
