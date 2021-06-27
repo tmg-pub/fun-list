@@ -191,7 +191,8 @@ function Publish() {
       $(".traitlist input.trait").each( function() {
          payload.traits[$(this).attr("name")] = $(this).val();
       });
-      payload.bio = $("#bio").text();
+      payload.bio = $("#bio").val();
+      
       payload.likes = {
          fave: [],
          yes: [],
