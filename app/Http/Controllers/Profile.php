@@ -37,7 +37,7 @@ class Profile extends Controller
             "age"  => "Age",
             "gender" => "Gender",
             "pronouns" => "Pronouns",
-            "color" => "Color",
+            "color" => "Favorite Color",
             "bestfriend" => "Best Friend",
             "bedtime" => "Bed Time"
          ];
@@ -78,11 +78,30 @@ class Profile extends Controller
          $pp = public_path();
          $pid = $profile->id;
 
+         $likes = [];
+         foreach( $likesections as $key => $value ) {
+            $likes[$key] = [];
+            foreach( $profile->fields["likes"][$key] as $like ) {
+               $likes[$key][] = $like;
+            }
+            usort( $likes[$key], function( $a, $b ) {
+               $an = strtolower($a['name']);
+               $bn = strtolower($b['name']);
+               if( $an < $bn ) {
+                  return -1;
+               } else if( $an > $bn ) {
+                  return 1;
+               }
+               return 0;
+            });
+         }
+
          return view( 'profile', [
             'profile'         => $profile,
             'trait_list'      => $trait_list,
             'trait_localized' => $trait_localized,
             'likesections'    => $likesections,
+            'likes'           => $likes,
             'canedit'         => Auth::check() && Auth::user()->id == $profile->user_id,
             'has_avatar'      => file_exists( "$pp/avatar/$pid.jpg" ),
          ]);

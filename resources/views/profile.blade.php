@@ -47,7 +47,7 @@
                <td class="{{$key}}" data-liketype="{{$key}}">
                   <p class="title">{{$sec['header']}}</p>
                   <ul>
-                     @foreach( $profile->fields["likes"][$key] as $like )
+                     @foreach( $likes[$key] as $like )
                         <?php
                            $likeclass = "";
                            if( isset($like['desc']) ) {
