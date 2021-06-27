@@ -38,7 +38,7 @@
    <td class="right-column">
       @if( !empty($profile->fields["bio"]) )
          <div class="bio">
-            {{$profile->fields["bio"]}}
+            {!!str_replace("\n","<br>",$profile->fields["bio"])!!}
          </div>
       @endif
       <table class="likelist"><tbody>

@@ -80,6 +80,11 @@ input[type=text] {
    border-radius:    4px;
    color:            inherit;
    box-sizing:       border-box;
+   margin-bottom:    16px;
+}
+
+.bio a {
+   border-bottom-width: 1px;
 }
 
 .editable-textbox {
